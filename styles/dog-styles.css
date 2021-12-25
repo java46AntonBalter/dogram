@@ -81,6 +81,8 @@ body, html {
         margin: 0;
     }
     .details-container{
+        flex-wrap: wrap;
+        overflow-y: auto;
         position:absolute;
         right:5vw;
         top:8vw;
