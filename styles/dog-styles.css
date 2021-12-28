@@ -182,8 +182,10 @@ body, html {
         text-align: center;
         padding: 1vw 2vw 1vw 2vw;
         font-size: 1.7rem;
+        color: beige; 
         position:relative;
         left:-21vw;
+        background: rgba(31,53,51,0.2); 
     }
     .details-image {
         width: 62vw;
