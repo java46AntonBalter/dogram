@@ -149,29 +149,29 @@ body, html {
         width: 1vw;
     }
     ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px rgb(83, 128, 123);
+        box-shadow: inset 0 0 5px rgb(108, 156, 151); 
         background: beige;
-        border: 1px solid rgb(83, 128, 123);
+        border: 1px solid rgb(108, 156, 151); 
     }
     ::-webkit-scrollbar-thumb {
         background: beige;
-        border: 1px solid rgb(83, 128, 123); 
-        box-shadow: inset 0 0 5px rgb(83, 128, 123);       
+        border: 1px solid rgb(108, 156, 151); 
+        box-shadow: inset 0 0 5px rgb(108, 156, 151);        
     }
     ::-webkit-scrollbar-thumb:hover {
-        background: rgb(83, 128, 123);
+        background: rgb(108, 156, 151);  
     }
     .thumbnails-list {
         width:17vw;
         max-height: 87vh;  
     }
     .thumbnails-item{
-        border: 1px solid rgb(83, 128, 123);
-        box-shadow: inset 0 0 5px rgb(83, 128, 123);
+        border: 1px solid rgb(108, 156, 151); 
+        box-shadow: inset 0 0 5px rgb(108, 156, 151); 
     }
     .thumbnails-title{
         font-size: 1.5rem;
-        color: rgb(83, 128, 123); 
+        color: rgb(108, 156, 151); 
         display: flex;
         flex-direction: column;
         align-items: center;  
