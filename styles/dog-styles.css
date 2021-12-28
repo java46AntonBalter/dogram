@@ -1,11 +1,83 @@
+@font-face {
+    font-family: lakeshor;
+    src: url("fonts/LAKESHOR-webfont.svg");
+    src: url("fonts/LAKESHOR-webfont.woff");
+}
+@font-face {
+    font-family: airstream;
+    src: url("fonts/Airstream-webfont.svg");
+    src: url("fonts/Airstream-webfont.woff");
+}
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 0;
+    background-color: rgb(155, 197, 193);
     /* align-items: center; */
 }
-body, html {
-    height: 100%
+:root {
+    --thumbnails-image-width: 20vw;
+    --thumbnails-image-height: 18vw;
+    --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.35);
+}
+
+.thumbnails-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: 32vh;
+    overflow-y: auto;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    padding-top: 2.5vh;
+}
+.thumbnails-image {
+    width: var(--thumbnails-image-width);
+    height: var(--thumbnails-image-height);
+    display:block
+}
+.details-title {
+    background-color: cornsilk;
+    position: absolute;
+    left: 3vw;
+    bottom: 2vw;
+    font-family: airstream;
+    font-style: italic;
+}
+.details-image {
+    width: 80vw;
+    height: 60vw;
+    border-radius: 15%;
+    overflow: hidden;
+}
+.details-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+.thumbnails-title {
+    display: block;
+    text-align: center;
+    background-color: beige;
+    color: blue;
+    font-size: 1.2rem;
+    width: var(--thumbnails-image-width);
+    height: var(--thumbnails-title-height);
+}
+.thumbnails-item {
+    margin-top: 2vh;
+    margin-left: 2vw;
+    border: 1px solid blue;
+    border-radius: 25%;
+    overflow: hidden;
+    max-width:var(--thumbnails-image-width);
+    min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height)); 
+}
+.thumbnails-anchor {
+    text-decoration: none;
 }
 .logo-title {
     background-color: fuchsia;
@@ -13,131 +85,85 @@ body, html {
     font-size: 2rem;
     text-align: center;
    text-transform: uppercase;
+   margin: 0;
+   font-family: lakeshor;
 }
-.details-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.details-title {
-    background-color: cornsilk;
-    position: absolute;
-    left: 3vw;
-    bottom: 2vw
-}
-.details-image {
-    width: 60vw;
-    height: 55vw
-}
-.thumbnails-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-height: 25vh;
-    overflow-y: auto;
-    justify-content: space-around;
-    list-style: none;
-    padding: 0;
-    padding-top: 2.5vh;
-}
-.thumbnails-item {
-    margin-top: 2vh;
-    margin-left: 2vw;
-    border: 1px solid blue;
-}
-.thumbnails-anchor {
-    text-decoration: none;
-}
-.thumbnails-image {
-    width: 20vw;
-    height: 18vw;
-    display:block
-}
-.thumbnails-title {
-    display: block;
-    text-align: center;
-    background-color: beige;
-    color: blue;
-    font-size: 1.2rem;
+body, html {
+    height: 100%
 }
 @media (min-width: 568px){
-    body {
-        background-color: rgb(39, 83, 109);
-        margin: 0;
+    :root {
+        --thumbnails-image-width: 12vw;
+        --thumbnails-image-height: 10vw;
+        --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.35);
+    }
+    .thumbnails-list {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        order: -1;
+        max-height: 70vh;
         justify-content: flex-start;
+        padding: 0;     
     }
-    .main-content{
-        
-        height: 100%;
-        width: 100%;
+    .thumbnails-title {
+        font-size: 1rem;
     }
-    .logo-title {
-        display:block;
-        background-color: rgb(119, 165, 192);
-        color: rgb(0, 0, 0);
-        font-size: 1.3rem;
-        font-style: italic;
-        text-align: center;
-        text-transform: uppercase;
-        margin: 0;
+    .thumbnails-item {
+        margin-left:0;
+        margin-top: 0;
     }
-    .details-container{
-        position:absolute;
-        right:5vw;
-        top:8vw;
+    .thumbnails-item+.thumbnails-item {
+        margin-top: 2vh;
     }
     .details-image {
         width: 60vw;
-        height: 40vw;
-        
+        height: 43vw;
     }
     .details-title {
-        background-color: rgb(241, 120, 38);
-        color:rgb(255, 255, 255);
-        text-align: center;
-        font-style:italic;  
-        position: absolute;
-        width:57vw;
         left: -4vw;
-        bottom: 2vw;
+        bottom: 2vw;        
     }
-    .thumbnails-list {  
-        width: 30vw;
-        height: 100%;
-        order: -1;
-        position: absolute;
-        left: -3vw;
-        padding-top: 0;
-        max-height: 85%;
+    .main-content {
+        display: flex;
+        justify-content: space-around;        
     }
-    .thumbnails-item {
-        max-width: 22vw;        
-        margin-bottom: 3vw;
-        border: none;
+    .details-container {
+        justify-content: center;        
     }
-    .thumbnails-title {
-        width: 22vw;
-        background-color: rgb(255, 255, 255);
-        border: 2px solid rgb(255, 255, 255);
-        border-radius: 0 0 20px 20px;
-    }
-    .thumbnails-image {
-        width: 22vw;
-        height: 15vw;
-        border: 2px solid rgb(255, 255, 255);
-        border-radius: 20px 20px 0 0;
-    }
-    .footer-title {
-        display:block;
-        background-color: rgb(119, 165, 192);
-        color: rgb(0, 0, 0);
-        font-size: 0.8rem;
-        text-align: center;
-        position: fixed;
-        width: 100%;
+    body {       
+        justify-content: space-between;
         margin: 0;
-        bottom: 0;
+    }
+    .logo-title {
+        margin: 0;
+        font-size: 1.5rem;        
+    }
+}
+@media (min-width: 900px){
+    :root {
+        --thumbnails-image-width: 14vw;
+        --thumbnails-image-height: 10vw;
+        --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.32);
     }
 
-}       
+    .thumbnails-list {
+        width:17vw;
+        max-height: 82vh;  
+    }
+    .thumbnails-title{
+        font-size: 1.5rem;
+    }
+    .details-title {
+        bottom: 7vw;
+        text-align: center;
+        padding: 1vw 2vw 1vw 2vw;
+        font-size: 1.7rem;
+        position:relative;
+        left:-21vw;
+    }
+    .details-image {
+        width: 62vw;
+        height: 45vw;
+    }
+
+}    
