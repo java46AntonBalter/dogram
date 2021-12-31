@@ -129,7 +129,7 @@ body, html {
     }
     .details-title {
         left: -4vw;
-        bottom: 2vw
+        bottom: 2vw;
         
     }
     .main-content {
@@ -154,7 +154,8 @@ body, html {
     }
 }
 @media (min-width: 900px){
-    
+
+
     .thumbnails-list {
         
         max-height: 85vh;
@@ -173,8 +174,8 @@ body, html {
         height: 38vw;
     }
     .details-title {
-        left: 1vw;
-        bottom: 3vw;
+        left: -2vw;
+        bottom: 8vw;
         font-size: 2rem;
         
     }
