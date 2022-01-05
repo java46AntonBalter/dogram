@@ -34,12 +34,8 @@ body {
     padding-top: 2.5vh;
 }
 .hidden .thumbnails-list {
-    flex-direction: row;
     max-height: 80vh;
     max-width: 100vw;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    align-items:center;
     margin: 2vh 2vh 0 2vh;
 }
 .hidden .thumbnails-image {

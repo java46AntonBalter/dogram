@@ -33,6 +33,6 @@ function showDetails() {
     mainContentEl.classList.remove('hidden');
 }
 function hideDetails() {
-    mainContentEl.classList.add('hidden') 
-    selectedItem.classList.remove("selected")
+    mainContentEl.classList.add('hidden');    
+    selectedItem.classList.remove("selected");
 }
