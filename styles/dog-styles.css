@@ -28,58 +28,29 @@ body {
     flex-wrap: wrap;
     max-height: 35vh;
     overflow-y: auto;
-    justify-content: space-between;
+    justify-content: space-around;
     list-style: none;
     padding: 0;
     padding-top: 2.5vh;
 }
 .hidden .thumbnails-list {
+    flex-direction: column;
     max-height: 80vh;
-    max-width: 100vw;
-    margin: 2vh 2vh 0 2vh;
+    flex-wrap:nowrap;
+    justify-content: flex-start;
+}
+.hidden.main-content {
+    display: flex;
+    justify-content: center;
 }
 .hidden .thumbnails-image {
-    width: calc(var(--thumbnails-image-width)*1.8);
-    height: calc(var(--thumbnails-image-height)*1.8);
+    width: calc(var(--thumbnails-image-width) * 3);
+    height: calc(var(--thumbnails-image-height) * 3);
 }
-.hidden .thumbnails-title{
-    width: calc(var(--thumbnails-image-width)*1.8);
-    height: calc(var(--thumbnails-title-height)*1.8);
-}
-.hidden .thumbnails-item{
-    max-width: calc(var(--thumbnails-image-width)*1.8);
-    min-height: calc((var(--thumbnails-image-height)*1.8) + (var(--thumbnails-title-height)*1.8));
-}
-
 .thumbnails-image {
     width: var(--thumbnails-image-width);
     height: var(--thumbnails-image-height);
     display:block
-}
-.thumbnails-title {
-    display: block;
-    text-align: center;
-    background-color: beige;
-    color: blue;
-    font-size: 1.2rem;
-    width: var(--thumbnails-image-width);
-    height: var(--thumbnails-title-height);
-}
-.thumbnails-item {
-    margin-top: 2vh;
-    margin-left: 2vw;
-    border: 1px solid blue;
-    max-width: var(--thumbnails-image-width);
-    min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
-    border-radius: 25%;
-    overflow: hidden
-}
-.selected.thumbnails-item {
-    border-radius: 0;
-    border: 3px solid green
-}
-.thumbnails-anchor {
-    text-decoration: none;
 }
 .details-title {
     background-color: cornsilk;
@@ -99,6 +70,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 3s cubic-bezier(0.1, 2, 0.9, 1) ;
 }
 .hide-button {
     position:absolute;
@@ -107,6 +79,44 @@ body {
 }
 .hidden .details-container {
     display: none
+}
+.thumbnails-title {
+    display: block;
+    text-align: center;
+    background-color: beige;
+    color: blue;
+    font-size: 1.2rem;
+    width: var(--thumbnails-image-width);
+    height: var(--thumbnails-title-height);
+}
+.hidden .thumbnails-title {
+    
+    width: calc(var(--thumbnails-image-width) * 3);
+    height: calc(var(--thumbnails-title-height) * 2);
+    font-size: 2rem;
+}
+.thumbnails-item {
+    margin-top: 2vh;
+    margin-left: 2vw;
+    border: 1px solid blue;
+    max-width: var(--thumbnails-image-width);
+    min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+    border-radius: 25%;
+    overflow: hidden
+}
+
+.hidden .thumbnails-item {
+   
+    max-width: calc(var(--thumbnails-image-width) * 3);
+    min-height: calc(var(--thumbnails-image-height) * 3 + var(--thumbnails-title-height) * 2);
+   
+}
+.selected.thumbnails-item {
+    border-radius: 0;
+    border: 1px solid green
+}
+.thumbnails-anchor {
+    text-decoration: none;
 }
 .logo-title {
     background-color: fuchsia;
@@ -119,6 +129,14 @@ body {
 }
 body, html {
     height: 100%
+}
+.thumbnails-item:hover {
+    transform: scale(1.1);
+    transition: 50ms;
+}
+.is-tiny {
+    transform: scale(0.001);
+    transition: 0s;
 }
 @media (min-width: 568px){
     :root {
@@ -136,6 +154,13 @@ body, html {
         margin: 0;
        
     }
+    .hidden .thumbnails-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    
     .thumbnails-title {
         
         font-size: 1rem;
@@ -152,27 +177,9 @@ body, html {
     .thumbnails-item+.thumbnails-item {
         margin-top: 2vh;
     }
-
-    .hidden .thumbnails-list {
-        flex-direction: row;
-        max-height: 85vh;
-        max-width: 100vw;
-        flex-wrap:wrap;
-        justify-content:space-between;
-        align-items:center;
-        margin: 2vw 2vw 0 2vw;
-    }
-    .hidden .thumbnails-image {
-        width: calc(var(--thumbnails-image-width)*1.77);
-        height: calc(var(--thumbnails-image-height)*1.77);
-    }
-    .hidden .thumbnails-title{
-        width: calc(var(--thumbnails-image-width)*1.77);
-        height: calc(var(--thumbnails-title-height)*1.77);
-    }
+    
     .hidden .thumbnails-item{
-        max-width: calc(var(--thumbnails-image-width)*1.77);
-        min-height: calc((var(--thumbnails-image-height)*1.77) + (var(--thumbnails-title-height)*1.77));
+        margin-top: 2vh
     }
     
     .details-image {

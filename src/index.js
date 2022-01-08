@@ -4,6 +4,7 @@ let detailsTitle = document.querySelector(".details-title");
 let mainContentEl = document.querySelector(".main-content");
 
 let selectedItem;
+let gav;
 let anchors = 
 document.querySelectorAll(".thumbnails-anchor");//all HTML elements belonging to the clas thumbnails-anchor
 for(let i = 0; i < anchors.length; i++) {
@@ -11,16 +12,20 @@ for(let i = 0; i < anchors.length; i++) {
         event.preventDefault(); //canceling default behavior of anchor element hitting
         showDetails();
         setDetails(anchors[i]); //setDetails function call with passing reference to appropriate anchor
+        gav = anchors[i].querySelector('.gav');
+        if (gav) {
+            gav.removeAttribute('muted');
+        }
     })
 }
 function setDetails(anchor) {
     console.log("anchor element  was pressed", anchor);
     let hrefValue = anchor.getAttribute("href");
     detailsImage.setAttribute("src", hrefValue );
-    anchor.parentElement.classList.add("selected");
     if (selectedItem) {
         selectedItem.classList.remove("selected")
     }
+    anchor.parentElement.classList.add("selected");
     selectedItem = anchor.parentElement;
     //get element with class thumbnails-title inside the given anchor
     let thumbnailsTitleSelector = `[href="${hrefValue}"] .thumbnails-title`;
@@ -31,8 +36,16 @@ function setDetails(anchor) {
 }
 function showDetails() {
     mainContentEl.classList.remove('hidden');
+    detailsImage.parentElement.classList.add('is-tiny');
+    setTimeout(removeIsTiny);
 }
+function removeIsTiny() {
+    detailsImage.parentElement.classList.remove('is-tiny');
+}
+
 function hideDetails() {
-    mainContentEl.classList.add('hidden');    
-    selectedItem.classList.remove("selected");
+    mainContentEl.classList.add('hidden') ;
+    if (selectedItem) {
+        selectedItem.classList.remove('selected')
+    }
 }
