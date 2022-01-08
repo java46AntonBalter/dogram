@@ -2,8 +2,8 @@ console.log("script launched");
 let detailsImage = document.querySelector(".details-image");
 let detailsTitle = document.querySelector(".details-title");
 let mainContentEl = document.querySelector(".main-content");
-
 let selectedItem;
+let selectedGav;
 let gav;
 let anchors = 
 document.querySelectorAll(".thumbnails-anchor");//all HTML elements belonging to the clas thumbnails-anchor
@@ -12,11 +12,7 @@ for(let i = 0; i < anchors.length; i++) {
         event.preventDefault(); //canceling default behavior of anchor element hitting
         showDetails();
         setDetails(anchors[i]); //setDetails function call with passing reference to appropriate anchor
-        gav = anchors[i].querySelector('.gav');
-        if (gav) {
-            gav.removeAttribute('muted');
-        }
-    })
+        })
 }
 function setDetails(anchor) {
     console.log("anchor element  was pressed", anchor);
@@ -25,13 +21,19 @@ function setDetails(anchor) {
     if (selectedItem) {
         selectedItem.classList.remove("selected")
     }
+
     anchor.parentElement.classList.add("selected");
     selectedItem = anchor.parentElement;
+    if (gav) {
+        mute(gav)
+    }
+    gav = anchor.querySelector('.gav');
+    unmute(gav);
     //get element with class thumbnails-title inside the given anchor
     let thumbnailsTitleSelector = `[href="${hrefValue}"] .thumbnails-title`;
     let thumbnailsTitleEl = document.querySelector(thumbnailsTitleSelector);
     //dog name exists inside thumbnailsTitleEl.textContent
-    detailsTitle.textContent = `${thumbnailsTitleEl.textContent}: ${anchor.getAttribute('data-details-title')}` ;
+    detailsTitle.textContent = `${thumbnailsTitleEl.textContent}: ${anchor.getAttribute('data-details-title')}`;
    
 }
 function showDetails() {
@@ -48,4 +50,10 @@ function hideDetails() {
     if (selectedItem) {
         selectedItem.classList.remove('selected')
     }
+}
+function mute(gav){
+    gav.setAttribute('muted','');
+}
+function unmute(gav){
+    gav.removeAttribute('muted','');
 }
